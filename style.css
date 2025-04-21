@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.game-container {
+  width: 60%;
+  height: calc(100vh * 0.8);
+  margin: 40px auto;
+
+  display: flex;
+  border: 1px solid lightblue;
+}
+
+.word-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  gap: 2px;
+  justify-content: center;
+  align-content: center;
+  margin: 0 10px;
+}
+
+.word-grid .cell {
+  width: 40px;
+  height: 40px;
+  border: 1px solid lightgreen;
+
+  font-size: 1rem;
+  background-color: #ccc;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.cell.selected {
+  background-color: aquamarine;
+}
+
+.cell.found {
+  background-color: aqua;
+}
+
+.words li.found {
+  text-decoration: line-through;
+  color: green;
+}
+
+.cell.refilled {
+  animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
